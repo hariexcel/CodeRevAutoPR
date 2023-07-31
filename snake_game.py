@@ -2,6 +2,17 @@ import pygame
 import random
 
 # Initialize Pygame
+import random
+
+# Initialize Pygame
+pygame.init()
+import pygame
+import random
+import pygame
+import pygame
+import random
+
+# Define colors
 pygame.init()
 
 # Define colors
@@ -24,24 +35,31 @@ pygame.display.set_caption("Snake Game")
 
 clock = pygame.time.Clock()
 
+# Add comments to improve readability and explain the purpose of each code block.
+
 def draw_snake(snake_body):
+    # Draw the snake on the window
     for segment in snake_body:
         pygame.draw.rect(window, GREEN, (segment[0], segment[1], SNAKE_SIZE, SNAKE_SIZE))
 
 def generate_food():
+    # Generate random coordinates for the food
     food_x = round(random.randrange(0, WINDOW_WIDTH - SNAKE_SIZE) / SNAKE_SIZE) * SNAKE_SIZE
     food_y = round(random.randrange(0, WINDOW_HEIGHT - SNAKE_SIZE) / SNAKE_SIZE) * SNAKE_SIZE
     return food_x, food_y
 
 def draw_food(food_x, food_y):
+    # Draw the food on the window
     pygame.draw.rect(window, RED, (food_x, food_y, SNAKE_SIZE, SNAKE_SIZE))
 
 def display_score(score):
+    # Display the current score on the window
     font = pygame.font.SysFont(None, 25)
     text = font.render("Score: " + str(score), True, BLACK)
     window.blit(text, (10, 10))
 
 def game_over():
+    # Display "Game Over" message on the window
     font = pygame.font.SysFont(None, 50)
     text = font.render("Game Over", True, BLACK)
     window.blit(text, (WINDOW_WIDTH / 2 - text.get_width() / 2, WINDOW_HEIGHT / 2 - text.get_height() / 2))
@@ -92,10 +110,16 @@ def snake_game():
 
         # Check for game over conditions
         if snake_x < 0 or snake_x >= WINDOW_WIDTH or snake_y < 0 or snake_y >= WINDOW_HEIGHT:
+
+        # Check for game over conditions
+        if snake_x < 0 or snake_x >= WINDOW_WIDTH or snake_y < 0 or snake_y >= WINDOW_HEIGHT:
             game_over()
             break
 
         # Check if the snake has eaten the food
+        if snake_x == food_x and snake_y == food_y:
+            food_x, food_y = generate_food()
+            score += 1
         if snake_x == food_x and snake_y == food_y:
             food_x, food_y = generate_food()
             score += 1
