@@ -3,7 +3,6 @@ import pygame
 import random
 
 # Define colors
-import random
 pygame.init()
 
 # Define colors
@@ -98,6 +97,9 @@ def snake_game():
             snake_y -= SNAKE_SPEED
         elif snake_direction == "DOWN":
             snake_y += SNAKE_SPEED
+
+        # Check for game over conditions
+        if snake_x < 0 or snake_x >= WINDOW_WIDTH or snake_y < 0 or snake_y >= WINDOW_HEIGHT:
 
         # Check for game over conditions
         if snake_x < 0 or snake_x >= WINDOW_WIDTH or snake_y < 0 or snake_y >= WINDOW_HEIGHT:
