@@ -1,6 +1,9 @@
 # Initialize Pygame
 import pygame
 import random
+import pygame
+import pygame
+import random
 
 # Define colors
 pygame.init()
