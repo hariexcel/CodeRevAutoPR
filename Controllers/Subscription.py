@@ -1,4 +1,5 @@
-Controllers/Subscription.py
+class Subscription:
+    def upgradeSubscription(session):
 
 class Subscription:
     def upgradeSubscription(session):
