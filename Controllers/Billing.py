@@ -1,8 +1,8 @@
--import services.Auth
- import models.Account
-
- #Create method monthlyCharges that takes token as string and returns float
+import services.Auth
 import models.Account
 
-#Create method mothlyCharges that takes token as string and returns float
+# Create method monthlyCharges that takes token as string and returns float
+import models.Account
+
+# Create method monthlyCharges that takes token as string and returns float
 def monthlyCharges(token):
