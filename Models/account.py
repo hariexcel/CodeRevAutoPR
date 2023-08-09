@@ -1,19 +1,10 @@
 class Account:
     @staticmethod
     def upgrade(uid: int) -> None:
-        # Implementation of the `upgrade` method
+        pass
 
-    @staticmethod
-    def getTier(uid: int) -> Tier:
-        # Implementation of the `getTier` method
-```
-
-Here are the contents of the file "account.py":
-
-```
-class Account:
-    @staticmethod
-    def upgrade(uid: int) -> None:
+    def login(self, username: str, password: str) -> bool:
+        # Implementation of the login functionality
         pass
 
     @staticmethod
