@@ -4,7 +4,7 @@ class Account:
         pass
 
     def login(self, username: str, password: str) -> bool:
-        # Implementation of the login functionality
+        # Implementation of the login functionality that requires
         pass
 
     @staticmethod
