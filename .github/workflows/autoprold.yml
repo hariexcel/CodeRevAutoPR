@@ -1,13 +1,8 @@
 on:
-  push:
-    branches:
-      - main
   issues:
     types: [labeled]
   issue_comment:
     types: [created]
-  pull_request:
-    types: [labeled]
 
 permissions:
   contents: write
@@ -16,6 +11,11 @@ permissions:
 
 jobs:
   autopr:
+    if: ${{ (github.event_name == 'issues' && 
+             contains( github.event.label.name, 'AutoPR')) || 
+            (github.event_name == 'issue_comment' && 
+             github.event.issue.pull_request &&
+             contains( github.event.comment.body, 'Hey AutoPR')) }}
     runs-on: ubuntu-latest
     steps:
     - name: Install jq
@@ -37,9 +37,10 @@ jobs:
         ref: main
         fetch-depth: 1
     - name: AutoPR
-      uses: irgolic/AutoPR@10e2891
+      uses: docker://ghcr.io/irgolic/autopr@10e2891:latest
       env:
         OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        base_branch: main
+        github_token: ${{ secrets.PAT }}
+        model: 'gpt-3.5-turbo'
+        context_limit: 4096
