@@ -12,4 +12,3 @@ class Auth:
             return 3
         else:
             return 0
-        
